@@ -27,4 +27,7 @@ using namespace Eigen;
 /// 
 /// <param name = "path"> - 文档完整路径</param>
 /// <param name = "corPC"> - corPC三维数组</param>
-void readCorPC(string path, double corPC[][COR_PC_COLS][COR_PC_Z]);
+void readCorPC(string path, double corPC[COR_PC_ROWS][COR_PC_COLS][COR_PC_Z]);
+
+
+Mat geomCorr(Mat imCam, double corPC[][COR_PC_COLS][COR_PC_Z], string saveDir);

@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="geometricCorrection.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="readCorPC.cpp" />
   </ItemGroup>

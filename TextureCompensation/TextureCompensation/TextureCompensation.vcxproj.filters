@@ -21,6 +21,9 @@
     <ClCompile Include="readCorPC.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="geometricCorrection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="declarations.h">

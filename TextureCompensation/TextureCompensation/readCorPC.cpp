@@ -12,11 +12,11 @@
 *********************************************************************************
 *																				*
 *   Written and developed by Songzhi ZHENG.										*
-*   Copyright © 2021 Lipi NIU & Songzhi ZHENG. All rights reserved.				*
+*   Copyright © 2021 Songzhi ZHENG. All rights reserved.				*
 *																				*
 ********************************************************************************/
 
-void readCorPC(string path, double corPC[][COR_PC_COLS][COR_PC_Z]) {
+void readCorPC(string path, double corPC[COR_PC_ROWS][COR_PC_COLS][COR_PC_Z]) {
 	/* 启动计时 */
 	double dur;
 	clock_t timeStart, timeEnd;
@@ -27,9 +27,10 @@ void readCorPC(string path, double corPC[][COR_PC_COLS][COR_PC_Z]) {
 	ifstream fileCorPC(path, ios::in);
 	string lineCorPC;
 
+
 	cout << "\nReading corPC from file...\n";
 	if (fileCorPC.is_open()) {
-		cout << "'" << path << "' opened.\n";
+		cout << "\t'" << path << "' opened.\n";
 		int i = 0;
 
 		while (getline(fileCorPC, lineCorPC)) {
@@ -42,20 +43,24 @@ void readCorPC(string path, double corPC[][COR_PC_COLS][COR_PC_Z]) {
 			}
 
 			for (size_t m = 0; m < subArray.size() / 2; m++) {
-				corPC[i][m][0] = stod(subArray[2 * m]);
-				corPC[i][m][1] = stod(subArray[2 * m + 1]);
+				corPC[i][m][0] = stod(subArray[m]);
+				corPC[i][m][1] = stod(subArray[m + COR_PC_COLS]);
 			}
 			i++;
 		}
 	} else {
-		cerr << "Failed to open '" << path << "'.\n";
+		cerr << "\tFailed to open '" << path << "'.\n";
 	}
 	
+
+	/* 结束计时 */
 	timeEnd = clock();
 	dur = double(timeEnd - timeStart) / CLOCKS_PER_SEC;
-	cout << "Time used: " << dur << " sec.\n";
+	cout << "\tTime used: " << dur << " sec.\n";
 
-	///* Test */
+
+	/* Test */
+	//cout << corPC[3][1][0] << "\t" << corPC[3][1][1] << "\n";
 	//for (int i = 0; i < COR_PC_ROWS; i++) {
 	//	for (int j = 0; j < COR_PC_COLS; j++) {
 	//		cout << corPC[i][j][0] << "\t" << corPC[i][j][1] << "\t";
