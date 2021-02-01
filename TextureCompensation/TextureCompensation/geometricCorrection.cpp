@@ -1,21 +1,36 @@
-#include "declarations.h"
+ï»¿#include "declarations.h"
 
-Mat geomCorr(Mat imCam, double corPC[][COR_PC_COLS][COR_PC_Z], string saveDir) {
-	/* Æô¶¯¼ÆÊ± */
+
+/********************************************************************************
+*																				*
+*   Description:		ä»æ–‡æ¡£ä¸­è¯»å–ä¸‰ç»´æ•°ç»„corPC									*
+*																				*
+*	Parameters:																	*
+*		imCam:			ç›¸æœºæ‹æ‘„çš„å¾…æ ¡æ­£çš„å›¾åƒ										*
+*		corPC:			corPCä¸‰ç»´æ•°ç»„												*
+*																				*
+*********************************************************************************
+*																				*
+*   Written and developed by Lipi NIU & Songzhi ZHENG.							*
+*   Copyright Â© 2021 Lipi NIU & Songzhi ZHENG. All rights reserved.				*
+*																				*
+********************************************************************************/
+
+Mat geomCorr(Mat imCam, double corPC[][COR_PC_COLS][COR_PC_Z]) {
+	/* å¯åŠ¨è®¡æ—¶ */
 	double dur;
 	clock_t timeStart, timeEnd;
 	timeStart = clock();
 
 
-	cout << "\nCorrecting image...\n";
-	Mat imCamTrans;		// ¾­¹ı¼¸ºÎĞ£ÕıµÄÏà»úÅÄÉãµÄÍ¶Ó°Í¼Ïñ
+	Mat imCamTrans;		// ç»è¿‡å‡ ä½•æ ¡æ­£çš„ç›¸æœºæ‹æ‘„çš„æŠ•å½±å›¾åƒ
 	int numChannel = imCam.channels();
 
 
 	switch (numChannel) {
 	case 1: {
-		/* ºÚ°×Í¼Ïñ */
-		imCamTrans = Mat::zeros(1200, 1920, CV_8UC1);
+		/* é»‘ç™½å›¾åƒ */
+		imCamTrans = Mat::zeros(1200, 1920, CV_64FC1);
 		for (int i = 300; i < 900; i++) {
 			for (int j = 480; j < 1440; j++) {
 				int ii = floor(corPC[i][j][0]);
@@ -35,8 +50,8 @@ Mat geomCorr(Mat imCam, double corPC[][COR_PC_COLS][COR_PC_Z], string saveDir) {
 	}
 
 	case 3: {
-		/* RGBÍ¼Ïñ */
-		imCamTrans = Mat::zeros(1200, 1920, CV_8UC3);
+		/* RGBå›¾åƒ */
+		imCamTrans = Mat::zeros(1200, 1920, CV_64FC3);
 		for (int i = 300; i < 900; i++) {
 			for (int j = 480; j < 1440; j++) {
 				int ii = floor(corPC[i][j][0]);
@@ -55,24 +70,32 @@ Mat geomCorr(Mat imCam, double corPC[][COR_PC_COLS][COR_PC_Z], string saveDir) {
 				for (int ch = 0; ch < numChannel; ch++) {
 
 					/* Debug */
-					//if (i == 300 && j == 1404) {
+					//if (i == 300 && j == 582) {
 					//	cout << "Check point:\n";
 					//}
 
-					uchar i1 = imCam.at<Vec3b>(ii, jj)[ch];
-					uchar i2 = imCam.at<Vec3b>(ii, jj + 1)[ch];
-					uchar i3 = imCam.at<Vec3b>(ii + 1, jj)[ch];
-					uchar i4 = imCam.at<Vec3b>(ii + 1, jj + 1)[ch];
+					int i1 = imCam.at<Vec3b>(ii, jj)[ch];
+					int i2 = imCam.at<Vec3b>(ii, jj + 1)[ch];
+					int i3 = imCam.at<Vec3b>(ii + 1, jj)[ch];
+					int i4 = imCam.at<Vec3b>(ii + 1, jj + 1)[ch];
 
-					imCamTrans.at<Vec3b>(i, j)[ch] = uchar(
+					/* æº¢å‡ºå¤„ç† */
+					double temp = 
 						(1 - u) * (1 - v) * i1
 						+ (1 - u) * v * i2
 						+ u * (1 - v) * i3
-						+ u * v * i4);
+						+ u * v * i4;
+					if (temp > 255) {
+						temp = 255;
+					} else if (temp < 0) {
+						temp = 0;
+					}
+					imCamTrans.at<Vec3d>(i, j)[ch] = temp;
 
-					/* Debug */
+
+					///* Debug */
 					//printf("i1= %d,\ti2 = %d,\ti3 = %d,\ti4 = %d\n", (int)i1, (int)i2, (int)i3, (int)i4);
-					//printf("imCamTrans.at<Vec3b>(%d, %d)[%d] = %d\n", i, j, ch, (int)imCamTrans.at<Vec3b>(i, j)[ch]);
+					//printf("imCamTrans.at<Vec3b>(%d, %d)[%d] = %lf\n", i, j, ch, imCamTrans.at<Vec3d>(i, j)[ch]);
 				}
 			}
 		}
@@ -85,13 +108,12 @@ Mat geomCorr(Mat imCam, double corPC[][COR_PC_COLS][COR_PC_Z], string saveDir) {
 	}
 
 
-	/* ½áÊø¼ÆÊ± */
+	/* ç»“æŸè®¡æ—¶ */
 	timeEnd = clock();
 	dur = double(timeEnd - timeStart) / CLOCKS_PER_SEC;
 	cout << "\tTime used: " << dur << " sec.\n";
 
 
 	imshow("Geometric corrected image", imCamTrans);
-	imwrite(saveDir + "IMG_0001_corrected.JPG", imCamTrans);
 	return imCamTrans;
 }

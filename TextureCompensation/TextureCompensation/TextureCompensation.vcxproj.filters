@@ -18,10 +18,13 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="readCorPC.cpp">
+    <ClCompile Include="geometricCorrection.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="geometricCorrection.cpp">
+    <ClCompile Include="testOpenCV.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fileIO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

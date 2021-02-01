@@ -145,7 +145,8 @@
   <ItemGroup>
     <ClCompile Include="geometricCorrection.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="readCorPC.cpp" />
+    <ClCompile Include="fileIO.cpp" />
+    <ClCompile Include="testOpenCV.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="declarations.h" />
