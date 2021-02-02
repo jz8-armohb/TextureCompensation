@@ -2,14 +2,12 @@
 
 int main(int argc, char** argv) {
 	string dirCorPC = argv[1];
-	string dirImg = argv[2];
+	string dirIm = argv[2];
 
 	double corPC[COR_PC_ROWS][COR_PC_COLS][COR_PC_Z] = { 0 };
+	cout << "\nReading corPC from file...\n";
 	readCorPC(dirCorPC + "corPC.txt", corPC);
 
-<<<<<<< Updated upstream
-	Mat img = imread(dirImg + "IMG_0001.JPG");
-=======
 	/* 几何校正*/
 	cout << "\nCorrecting image...\n";
 	Mat imCam = imread(dirIm + "child_cam.JPG");
@@ -27,5 +25,4 @@ int main(int argc, char** argv) {
 	//testOpenCV();
 	waitKey(0);
 	return 0;
->>>>>>> Stashed changes
 }

@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f888723a-7366-40d3-975e-ce8a441baec9}</ProjectGuid>
+    <ProjectGuid>{a9b0b3a3-fdd3-490b-a66a-95408ec8a399}</ProjectGuid>
     <RootNamespace>TextureCompensation</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -65,8 +65,8 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="Eigen339_x64Debug.props" />
     <Import Project="OpenCV451_x64Debug.props" />
+    <Import Project="Eigen339_x64Debug.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -143,13 +143,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
-=======
+    <ClCompile Include="fileIO.cpp" />
     <ClCompile Include="geometricCorrection.cpp" />
     <ClCompile Include="iterationCompensation.cpp" />
->>>>>>> Stashed changes
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="readCorPC.cpp" />
+    <ClCompile Include="testOpenCV.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="declarations.h" />

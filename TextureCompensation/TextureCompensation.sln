@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextureCompensation", "TextureCompensation\TextureCompensation.vcxproj", "{F888723A-7366-40D3-975E-CE8A441BAEC9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextureCompensation", "TextureCompensation\TextureCompensation.vcxproj", "{A9B0B3A3-FDD3-490B-A66A-95408EC8A399}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +13,19 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F888723A-7366-40D3-975E-CE8A441BAEC9}.Debug|x64.ActiveCfg = Debug|x64
-		{F888723A-7366-40D3-975E-CE8A441BAEC9}.Debug|x64.Build.0 = Debug|x64
-		{F888723A-7366-40D3-975E-CE8A441BAEC9}.Debug|x86.ActiveCfg = Debug|Win32
-		{F888723A-7366-40D3-975E-CE8A441BAEC9}.Debug|x86.Build.0 = Debug|Win32
-		{F888723A-7366-40D3-975E-CE8A441BAEC9}.Release|x64.ActiveCfg = Release|x64
-		{F888723A-7366-40D3-975E-CE8A441BAEC9}.Release|x64.Build.0 = Release|x64
-		{F888723A-7366-40D3-975E-CE8A441BAEC9}.Release|x86.ActiveCfg = Release|Win32
-		{F888723A-7366-40D3-975E-CE8A441BAEC9}.Release|x86.Build.0 = Release|Win32
+		{A9B0B3A3-FDD3-490B-A66A-95408EC8A399}.Debug|x64.ActiveCfg = Debug|x64
+		{A9B0B3A3-FDD3-490B-A66A-95408EC8A399}.Debug|x64.Build.0 = Debug|x64
+		{A9B0B3A3-FDD3-490B-A66A-95408EC8A399}.Debug|x86.ActiveCfg = Debug|Win32
+		{A9B0B3A3-FDD3-490B-A66A-95408EC8A399}.Debug|x86.Build.0 = Debug|Win32
+		{A9B0B3A3-FDD3-490B-A66A-95408EC8A399}.Release|x64.ActiveCfg = Release|x64
+		{A9B0B3A3-FDD3-490B-A66A-95408EC8A399}.Release|x64.Build.0 = Release|x64
+		{A9B0B3A3-FDD3-490B-A66A-95408EC8A399}.Release|x86.ActiveCfg = Release|Win32
+		{A9B0B3A3-FDD3-490B-A66A-95408EC8A399}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {36EAE618-A65E-4FFD-BF27-39E6A32E30AB}
+		SolutionGuid = {7B1F6024-FE44-4003-938B-D8E78679E310}
 	EndGlobalSection
 EndGlobal

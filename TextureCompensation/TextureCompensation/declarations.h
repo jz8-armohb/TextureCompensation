@@ -30,10 +30,7 @@ using namespace Eigen;
 /// 
 /// <param name = "path"> - 文档完整路径</param>
 /// <param name = "corPC"> - corPC三维数组</param>
-<<<<<<< Updated upstream
 void readCorPC(string path, double corPC[][COR_PC_COLS][COR_PC_Z]);
-=======
-void readCorPC(string path, double corPC[COR_PC_ROWS][COR_PC_COLS][COR_PC_Z]);
 
 
 /// <summary>
@@ -82,4 +79,3 @@ void iterCompen(string dir, Mat imPrj, Mat imCamTrans, Mat imCompenPrev, int num
 
 
 void testOpenCV();
->>>>>>> Stashed changes

@@ -15,13 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="readCorPC.cpp">
+    <ClCompile Include="geometricCorrection.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="iterationCompensation.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testOpenCV.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fileIO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
