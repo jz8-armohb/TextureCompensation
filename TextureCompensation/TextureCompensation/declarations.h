@@ -55,7 +55,7 @@ string addSuffix(string filenameIn, string extPrev, string suffixNew, string ext
 
 
 /// <summary>
-///     从文档中读取三维数组corPC
+///     根据corPC对相机拍摄的投影仪图像进行几何校正
 /// </summary>
 /// 
 /// <param name = "path"> - 相机拍摄的待校正的图像 (CV_8UC3格式)</param>
@@ -69,13 +69,13 @@ Mat geomCorr(Mat imCam, double corPC[][COR_PC_COLS][COR_PC_Z]);
 ///     进行迭代纹理补偿
 /// </summary>
 /// 
+/// <param name = "numCompen"> - 补偿次数</param>
+/// <param name = "lambda"> - 补偿增益系数 (0.1~0.9)</param>
 /// <param name = "dir"> - 图像存储目录</param>
 /// <param name = "imPrj"> - 投影仪原始输入图像 (CV_8UC3格式)</param>
 /// <param name = "imCamTrans"> - 相机拍摄的校正后的图像 (CV_64FC3格式)</param>
 /// <param name = "imCompenPrev"> - 上一轮补偿后的图像 (CV_64FC3格式)</param>
-/// <param name = "numCompen"> - 补偿次数</param>
-/// <param name = "lambda"> - 补偿增益系数 (0.1~0.9)</param>
-void iterCompen(string dir, Mat imPrj, Mat imCamTrans, Mat imCompenPrev, int numCompen, double lambda);
+void iterCompen(int numCompen, double lambda, string dir, Mat imPrj, Mat imCamTrans, Mat imCompenPrev = Mat::zeros(PRJ_IN_H, PRJ_IN_W, CV_64FC3));
 
 
 void testOpenCV();

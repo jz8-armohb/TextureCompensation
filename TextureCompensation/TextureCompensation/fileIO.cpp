@@ -23,7 +23,7 @@ void readCorPC(string path, double corPC[COR_PC_ROWS][COR_PC_COLS][COR_PC_Z]) {
 	timeStart = clock();
 
 
-	memset(corPC, 0, COR_PC_ROWS * COR_PC_COLS * COR_PC_Z);
+	//memset(corPC, 0, COR_PC_ROWS * COR_PC_COLS * COR_PC_Z);
 	ifstream fileCorPC(path, ios::in);
 	string lineCorPC;
 

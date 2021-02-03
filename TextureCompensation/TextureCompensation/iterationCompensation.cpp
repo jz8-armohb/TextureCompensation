@@ -6,12 +6,12 @@
 *   Description:		进行迭代纹理补偿											*
 *																				*
 *	Parameters:																	*
+*		numCompen:		补偿次数													*
+*		lambda:			补偿增益系数 (0.1~0.9)										*
 *		dir:			图像存储目录												*
 *		imPrj:			投影仪原始输入图像 (CV_8UC3格式)							*
 *		imCamTrans:		相机拍摄的校正后的图像 (CV_64FC3格式)						*
 *		imCompenPrev:	上一轮补偿后的图像 (CV_64FC3格式)							*
-*		numCompen:		补偿次数													*
-*		lambda:			补偿增益系数 (0.1~0.9)										*
 *																				*
 *********************************************************************************
 *																				*
@@ -20,8 +20,8 @@
 *																				*
 ********************************************************************************/
 
-void iterCompen(string dir, Mat imPrj, Mat imCamTrans, Mat imCompenPrev,
-	int numCompen, double lambda) {
+void iterCompen(int numCompen, double lambda, string dir, 
+	Mat imPrj, Mat imCamTrans, Mat imCompenPrev) {
 
 	/* 启动计时 */
 	double dur;

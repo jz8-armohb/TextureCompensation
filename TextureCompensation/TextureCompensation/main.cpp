@@ -4,6 +4,7 @@ int main(int argc, char** argv) {
 	string dirCorPC = argv[1];
 	string dirIm = argv[2];
 
+	/* 读入corPC */
 	double corPC[COR_PC_ROWS][COR_PC_COLS][COR_PC_Z] = { 0 };
 	cout << "\nReading corPC from file...\n";
 	readCorPC(dirCorPC + "corPC.txt", corPC);
@@ -18,7 +19,7 @@ int main(int argc, char** argv) {
 
 	/* 迭代补偿 */
 	cout << "\nExecuting iteration compensation...\n";
-	iterCompen(dirIm, imPrj, imCamTrans, imPrj, 1, 0.6);
+	iterCompen(1, 0.6, dirIm, imPrj, imCamTrans);
 
 
 

@@ -3,7 +3,7 @@
 
 /********************************************************************************
 *																				*
-*   Description:		从文档中读取三维数组corPC									*
+*   Description:		根据corPC对相机拍摄的投影仪图像进行几何校正					*
 *																				*
 *	Parameters:																	*
 *		imCam:			相机拍摄的待校正的图像 (CV_8UC3格式)							*
@@ -139,7 +139,7 @@ Mat geomCorr(Mat imCam, double corPC[][COR_PC_COLS][COR_PC_Z]) {
 
 	Mat imCamTrans_8UC3 = Mat::zeros(PRJ_IN_H, PRJ_IN_W, CV_8UC3);
 	imCamTrans.convertTo(imCamTrans_8UC3, CV_8UC3);
-	imshow("Geometric corrected image", imCamTrans_8UC3);
+	//imshow("Geometric corrected image", imCamTrans_8UC3);
 	//waitKey(0);
 	//imwrite(".\\images\\child_cam_corr.jpg", imCamTrans_8UC3);
 	return imCamTrans;
